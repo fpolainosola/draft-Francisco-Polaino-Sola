@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Francisco Polaino Sola · Ingeniero Mecánico y Técnico Superior en PRL</title>
+<meta name="description" content="Portfolio de Francisco Polaino Sola: diseño mecánico, impresión 3D, planos y proyectos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#eef1f2;--ink:#13233a;--line:#9fb1c2;--blue:#1d4f7c;--red:#c4372b;--card:#fbfcfc;--muted:#4d5d70;
+--head:"Barlow Condensed","Arial Narrow",sans-serif;--body:"Newsreader",Georgia,serif}
+@media (prefers-color-scheme:dark){:root{--paper:#0f1a2a;--ink:#e6edf4;--line:#38506a;--blue:#7db4e6;--red:#ff7b6b;--card:#16263b;--muted:#a3b4c6}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:19px/1.6 var(--body);
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;background-attachment:fixed;background-blend-mode:soft-light}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header.top{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:2px solid var(--ink)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+.brand{font:700 22px var(--head);letter-spacing:.02em}
+nav a{font:600 17px var(--head);text-decoration:none;color:var(--ink);margin-left:20px;letter-spacing:.03em}
+nav a:hover{color:var(--red)}
+/* hoja de dibujo */
+.sheet{border:2px solid var(--ink);background:var(--card);margin:40px 0;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+.sheet .photo{border-right:2px solid var(--ink);min-height:380px;background:#cfd8df}
+.sheet .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.sheet .info{display:flex;flex-direction:column}
+.sheet .title{padding:32px 28px;flex:1}
+h1{font:700 clamp(44px,6vw,76px)/.95 var(--head);margin:0 0 14px;text-transform:uppercase}
+.role{font:italic 400 22px var(--body);color:var(--muted);margin:0}
+.block{border-top:2px solid var(--ink);display:grid;grid-template-columns:auto 1fr;font-size:16px}
+.block dt,.block dd{margin:0;padding:8px 14px;border-bottom:1px solid var(--line)}
+.block dt{font:600 15px var(--head);letter-spacing:.06em;border-right:1px solid var(--line);color:var(--blue)}
+.block dd:last-of-type,.block dt:last-of-type{border-bottom:0}
+section{padding:36px 0}
+h2{font:700 clamp(32px,4vw,46px)/1 var(--head);margin:0 0 6px;display:flex;align-items:center;gap:16px}
+h2::after{content:"";flex:1;height:0;border-top:2px solid var(--ink);position:relative;top:2px}
+.lead{max-width:62ch;color:var(--muted);margin:0 0 24px}
+h3{font:600 26px var(--head);margin:34px 0 10px;border-left:6px solid var(--red);padding-left:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+figure{margin:0;background:var(--card);border:1px solid var(--ink);display:flex;flex-direction:column}
+figure button{all:unset;cursor:zoom-in;display:block;aspect-ratio:4/3;overflow:hidden;background:#d5dde3}
+figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
+figure button:hover img{transform:scale(1.04)}
+figure.doc img{object-fit:contain;background:#fff}
+figcaption{padding:9px 12px;font:600 17px var(--head);letter-spacing:.03em;border-top:1px solid var(--ink)}
+.btn{display:inline-block;margin:14px 0;padding:10px 18px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);font:600 18px var(--head);letter-spacing:.04em;text-decoration:none}
+.btn:hover{background:var(--red);border-color:var(--red);color:#fff}
+.videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.videos div{border:2px solid var(--ink);background:#000;aspect-ratio:16/9}
+.videos iframe{width:100%;height:100%;border:0;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:0}
+.chips li{border:1px solid var(--ink);padding:3px 12px;font:600 16px var(--head);background:var(--card)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+footer{border-top:2px solid var(--ink);padding:26px 0 40px;margin-top:30px;font-size:16px;color:var(--muted)}
+#lb{position:fixed;inset:0;background:rgba(8,14,24,.92);display:none;align-items:center;justify-content:center;z-index:20;padding:24px;flex-direction:column;gap:10px}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:82vh;object-fit:contain;background:#fff}
+#lb p{color:#fff;margin:0;font:600 20px var(--head)}
+#lb button{position:absolute;top:14px;right:18px;font:700 36px var(--head);color:#fff;background:none;border:0;cursor:pointer}
+@media (max-width:820px){.sheet{grid-template-columns:1fr}.sheet .photo{border-right:0;border-bottom:2px solid var(--ink);min-height:300px}.two{grid-template-columns:1fr}nav a{margin:0 14px 0 0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<span class="brand">F. Polaino Sola</span>
+<nav aria-label="Principal"><a href="#proyectos">Proyectos</a><a href="#casa">Casa en Baza</a><a href="#proceso">Proceso</a><a href="#videos">Vídeos</a><a href="#contacto">Contacto</a></nav>
+</div></header>
+
+<main class="wrap">
+<div class="sheet">
+  <div class="photo"><img id="hero" alt="Retrato de Francisco Polaino Sola"></div>
+  <div class="info">
+    <div class="title">
+      <h1>Francisco Polaino Sola</h1>
+      <p class="role">Ingeniero mecánico y técnico superior en PRL</p>
+    </div>
+    <dl class="block" aria-label="Estudios">
+      <dt>BACHILLER</dt><dd>Ciencias y Tecnología (2010–2012)</dd>
+      <dt>GRADO</dt><dd>Ingeniería Mecánica (2012–2018)</dd>
+      <dt>MÁSTER</dt><dd>Prevención de Riesgos Laborales (2020–2023)</dd>
+      <dt>SOFTWARE</dt><dd>Solid Edge · AutoCAD · Cura</dd>
+    </dl>
+  </div>
+</div>
+
+<section id="proyectos">
+<h2>Proyectos</h2>
+<p class="lead">Diseño de mobiliario, iluminación y piezas mecánicas, modelados en 3D y llevados a plano.</p>
+<div class="grid" id="g-proyectos"></div>
+<h3>Todos los diseños</h3>
+<ul class="chips" id="lista"></ul>
+</section>
+
+<section id="proceso">
+<h2>Del boceto al render</h2>
+<p class="lead">Así se da forma a los planos: idea a mano, modelado en Solid Edge y renderizado final.</p>
+<h3>Lámpara · Boceto</h3><div class="grid" id="g-boceto"></div>
+<h3>Lámpara · Solid Edge</h3><div class="grid" id="g-se"></div>
+<h3>Lámpara · Renderizado</h3><div class="grid" id="g-render"></div>
+<div class="two">
+  <div><h3>Primeros pasos en impresión 3D</h3><p>Técnica Voronoi aplicada a un lapicero.</p><div class="grid" id="g-3d" style="grid-template-columns:1fr 1fr"></div></div>
+  <div><h3>Camión</h3><p><em>«Cuando la fantasía se convierte en realidad…»</em></p><div class="grid" id="g-camion" style="grid-template-columns:1fr"></div></div>
+</div>
+<h3>Memoria motor V6</h3>
+<div class="grid" id="g-motor" style="grid-template-columns:minmax(240px,340px)"></div>
+<a class="btn" id="pdf-motor" target="_blank" rel="noopener">Descargar memoria (PDF)</a>
+<h3>Estatua de Dama de Baza real</h3><div class="grid" id="g-dama"></div>
+</section>
+
+<section id="casa">
+<h2>Una casa en Baza</h2>
+<p class="lead">Vivienda sobre estructura metálica basada en las medidas de los contenedores marítimos, proyectada en mi tierra, Baza. Normativa aplicada: PGOU de Baza y Código Técnico de la Edificación (CTE). Programas: AutoCAD y Solid Edge.</p>
+<div class="grid" id="g-casa" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))"></div>
+</section>
+
+<section id="videos">
+<h2>Vídeos</h2>
+<p class="lead">Bañera, conjunto brida, mesa inglete, lámpara corazón y maqueta de motor 2T.</p>
+<div class="videos" id="vids"></div>
+</section>
+
+<section id="contacto">
+<h2>Contacto</h2>
+<p class="lead">¿Hablamos de un proyecto, un diseño o prevención de riesgos laborales?</p>
+<a class="btn" href="https://draftfranciscopolainosola-com7.webnode.es/contacto/" target="_blank" rel="noopener">Escribir a Francisco</a>
+</section>
+</main>
+
+<footer><div class="wrap">© Francisco Polaino Sola. Todos los derechos reservados.</div></footer>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Imagen ampliada"><button aria-label="Cerrar">×</button><img alt=""><p></p></div>
+
+<script>
+const B="https://00e4327398.cbaul-cdnwnd.com/0283ad2ba111c03e2050b4a06da4915a/",Q="?ph=00e4327398";
+const u=p=>B+p+Q;
+document.getElementById("hero").src=B+"200000000-e0593e0594/FOTO%20FRANCISCO%20POLAINO%20SOLA.jpeg"+Q;
+document.getElementById("pdf-motor").href=u("200001371-8971b8971e/Motor%20V6%2012-09-2024.pdf");
+const D={
+proyectos:[["200000746-930ce930cf/untitled.234.jpeg","Recipiente"],["200000784-ec6a5ec6a7/untitled.192.jpeg","Lámpara policubos"],["200000878-9a5939a595/2-15.jpeg","Lámpara Venecia"],["200001671-0cf450cf4a/untitled.486.jpeg","Encimera"],["200001740-7851b7851d/yin-yang.532.jpeg","Lámpara impresión 3D"],["200001754-179791797a/untitled.535.jpeg","Lámpara energía"],["200001783-b0a64b0a67/untitled.549.jpeg","Lavabo con pendiente"],["200001908-e2a4ee2a50/untitled.645.jpeg","Llave fija"]],
+boceto:[["200001996-2a5bd2a5bf/71abb3c2-9315-43dd-943f-81d4ff48b968.jpeg","Boceto"]],
+se:[["200001998-e26cbe26cd/c080d516-00aa-42a5-916d-f143af6f54bd.jpeg","Solid Edge 1"],["200002000-c1c3ec1c40/3faf6a01-a0bf-4312-9363-28b3f8c39bbf.jpeg","Solid Edge 2"],["200002002-5b0ba5b0be/41f187bc-67ab-444f-9732-eb571c2427bd.jpeg","Solid Edge 3"],["200002004-be10ebe110/8a6e1c0d-aeaa-40e4-8874-ca94cd960e5b.jpeg","Solid Edge 4"]],
+render:[["200001990-d412fd4131/untitled.671.jpeg","Render 1"],["200001992-a0614a0616/untitled.679.jpeg","Render 2"],["200001994-6fb9f6fba0/untitled.674.jpeg","Render 3"]],
+"3d":[["200001697-e4424e4427/lapicero.jpeg","Lapicero"],["200001699-4501b4501c/lapicero%203.jpeg","Voronoi"]],
+camion:[["200001396-231ba231bb/35a2bd9e-87a0-440f-a10c-d7f087f24813.jpeg","Camión"]],
+motor:[["200001161-d54c6d54c8/Motor%20V6%2012-09-2024_page-0001.jpeg","Motor V6 · Memoria"]],
+dama:[["200001390-ea046ea047/IMG-20240925-WA0002.jpeg","Dama de Baza 1"],["200001392-3d43b3d43e/IMG-20240925-WA0003.jpeg","Dama de Baza 2"],["200001394-933cb933cc/IMG-20240925-WA0001.jpeg","Dama de Baza 3"]],
+casa:[["200001057-d4595d4597/1-%20PLANO%20DE%20SITUACION_page-0001.jpeg","Plano de situación"],["200001059-1003310034/2-%20PLANO%20DE%20EMPLAZAMIENTO_page-0001.jpeg","Plano de emplazamiento"],["200001019-dfb83dfb85/1699130380398_page-0001.jpeg","Distribución 1"],["200001021-7e8097e80b/1699130380398_page-0002.jpeg","Distribución 2"],["200001009-1594d1594f/ilovepdf_merged%20%2821%29_page-0001.jpeg","Cotas 1"],["200001011-3e3d73e3da/ilovepdf_merged%20%2821%29_page-0002.jpeg","Cotas 2"],["200001013-b5eb3b5eb6/ilovepdf_merged%20%2821%29_page-0003.jpeg","Cotas 3"],["200001007-57ece57ed1/planos%20de%20la%20casa-formato%20A2%20%28horizontal%29%28alzado%20planta%20y%20perfil%29%20BLANCO%20Y%20NEGRO_page-0001.jpeg","Alzados, planta y perfil"]]
+};
+const lb=document.getElementById("lb"),lbi=lb.querySelector("img"),lbp=lb.querySelector("p");
+for(const k in D){const el=document.getElementById("g-"+k);if(!el)continue;
+ D[k].forEach(([p,c])=>{const f=document.createElement("figure");if(k==="casa"||k==="motor")f.className="doc";
+ const b=document.createElement("button");b.setAttribute("aria-label","Ampliar: "+c);
+ const i=document.createElement("img");i.src=u(p);i.alt=c;i.loading="lazy";b.appendChild(i);
+ b.onclick=()=>{lbi.src=i.src;lbi.alt=c;lbp.textContent=c;lb.classList.add("on")};
+ const fc=document.createElement("figcaption");fc.textContent=c;f.append(b,fc);el.appendChild(f)})}
+lb.onclick=()=>lb.classList.remove("on");
+addEventListener("keydown",e=>{if(e.key==="Escape")lb.classList.remove("on")});
+["Lámpara Grecia","Lámpara Ópera Prima","Cenicero","Mortero y maza","Mesa rascacielos","Bella dama: geometría que enamora","Silueta de un espejo","Lavabo (6 diseños)","Tabla de corte","Mesa simplicidad","Mesa Roma","Mesa espacio 3D","Silla espacio 3D","Mesa composición","Bañera","Lámpara Madrid","Mesa pórtico","Platos","Recipiente","Lámpara policubos","Lámpara Barcelona","Lámpara Venecia","Lámpara trampantojo","Reposa libros","La silla donde te esperaré","Lavabo policubos","Lámpara mortero","Sillón almacén","Mesa recortes","Lámpara París","Lámpara corazón","Lámpara trapecio","Encimera","Lámpara encastre","Lámpara impresión 3D","Lámpara energía","Lámpara grúa","Lavabo con pendiente","Lavabo de forja y soldadura","Llave fija","Botijo","Porta velas"].forEach(t=>{const l=document.createElement("li");l.textContent=t;document.getElementById("lista").appendChild(l)});
+["Ra-658xpMJE","STCbCPTeTK4","aRTftl6iR4M","bO--M9TIuqE","AEtV7UobeQ0","7uNlsRjhUqY","DH3YfGR8SCA","cum7UVHHPF8","i6lBVsQrFmM","yn5GcaK865s"].forEach(id=>{const d=document.createElement("div");d.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'" title="Vídeo del proyecto" loading="lazy" allowfullscreen></iframe>';document.getElementById("vids").appendChild(d)});
+</script>
+</body>
+</html>
